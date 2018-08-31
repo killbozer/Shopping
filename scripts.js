@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-
+	function loadData() {
+		
+		
+	}
 
 
 	function connectToDB() {
