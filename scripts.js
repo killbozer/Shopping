@@ -1,3 +1,24 @@
+function saveData() {
+	var btnInput = document.getElementById('save');
+	var itmInput = document.getElementById('item');
+	var itmId = 0
+	
+	btnInput.addEventListener('click', function(evt) {
+		evt.preventDefault();
+		
+		var transaction = db.transaction('items', 'readwrite');
+		var store = transaction.objectStore('items');
+		
+		var data = store.add({id: itmId, name: itmInput.value});
+		data.addEventListener('success', function(evt) {
+			console.log('success', evt.target.result);
+		}	
+	}
+}
+
+
+
+
 function connectToDB() {
   // Connect to database
   var conn = indexedDB.open('test-db', 5);
